@@ -233,3 +233,40 @@ body {
   color: #666;
   font-size: 1rem;
 }
+.input-group {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  z-index: 1;
+}
+
+.form-input {
+  padding-left: 45px !important; /* Make space for the icon */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #777;
+  z-index: 1;
+}
+
+/* Adjust the name row inputs to account for icons */
+.name-row .input-group {
+  width: calc(50% - 8px);
+}
+
+.name-row .form-input {
+  width: 100%;
+}

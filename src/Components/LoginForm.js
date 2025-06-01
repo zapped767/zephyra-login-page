@@ -4,6 +4,18 @@ import { validateForm } from '../utils/validation';
 import LoadingSpinner from './LoadingSpinner';
 import './LoginForm.css';
 
+// Import icons (choose one of these options)
+// Option 1: Font Awesome (make sure to install @fortawesome/react-fontawesome)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+// Option 2: Material Icons (make sure to install @mui/icons-material)
+// import PersonIcon from '@mui/icons-material/Person';
+// import EmailIcon from '@mui/icons-material/Email';
+// import LockIcon from '@mui/icons-material/Lock';
+// import VisibilityIcon from '@mui/icons-material/Visibility';
+// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -133,45 +145,58 @@ const LoginForm = () => {
 
           <div className="name-row">
             <div className="input-group">
+              <div className="input-icon">
+                <FontAwesomeIcon icon={faUser} />
+                {/* For Material Icons: <PersonIcon /> */}
+              </div>
               <input
                 type="text"
                 name="firstName"
-                placeholder="Michal"
+                placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleInputChange}
                 className={`form-input ${errors.firstName ? 'error' : ''}`}
               />
-              <span className="flag-icon"></span>
               {errors.firstName && <span className="error-text">{errors.firstName}</span>}
             </div>
             <div className="input-group">
+              <div className="input-icon">
+                <FontAwesomeIcon icon={faUser} />
+                {/* For Material Icons: <PersonIcon /> */}
+              </div>
               <input
                 type="text"
                 name="lastName"
-                placeholder="Masiak"
+                placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleInputChange}
                 className={`form-input ${errors.lastName ? 'error' : ''}`}
               />
-              <span className="flag-icon">🇵🇱</span>
               {errors.lastName && <span className="error-text">{errors.lastName}</span>}
             </div>
           </div>
 
           <div className="input-group">
+            <div className="input-icon">
+              <FontAwesomeIcon icon={faEnvelope} />
+              {/* For Material Icons: <EmailIcon /> */}
+            </div>
             <input
               type="email"
               name="email"
-              placeholder="michal.masiak@anywhere.co"
+              placeholder="Email Address"
               value={formData.email}
               onChange={handleInputChange}
               className={`form-input ${errors.email ? 'error' : ''}`}
             />
-            <span className="email-icon">📧</span>
             {errors.email && <span className="error-text">{errors.email}</span>}
           </div>
 
           <div className="input-group">
+            <div className="input-icon">
+              <FontAwesomeIcon icon={faLock} />
+              {/* For Material Icons: <LockIcon /> */}
+            </div>
             <input
               type={showPassword ? 'text' : 'password'}
               name="password"
@@ -185,7 +210,8 @@ const LoginForm = () => {
               className="password-toggle"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? '🙈' : '👁️'}
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+              {/* For Material Icons: showPassword ? <VisibilityOffIcon /> : <VisibilityIcon /> */}
             </button>
             {errors.password && <span className="error-text">{errors.password}</span>}
           </div>
